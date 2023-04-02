@@ -11,7 +11,7 @@ class EventAttendance < ApplicationRecord
   private
 
   def woman_only_event
-    if event.only_woman == "only_woman" && !(user.gender == "woman")
+    if event.only_woman == true && !(user.gender == "woman")
       errors.add(:base, "このイベントは女性限定です")
     end
   end

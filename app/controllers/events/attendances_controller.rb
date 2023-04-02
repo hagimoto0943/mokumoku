@@ -10,7 +10,7 @@ class Events::AttendancesController < ApplicationController
       end
     end
     redirect_back(fallback_location: root_path, success: '参加の申込をしました')
-    rescue => e
+    rescue ActiveRecord::NotNullViolation
       redirect_back(fallback_location: root_path, success: '参加の申込に失敗しました')
   end
 
