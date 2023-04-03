@@ -27,4 +27,8 @@ class Event < ApplicationRecord
   def future?
     !past?
   end
+
+  def attend_to_only_woman?(user)
+    self.only_woman == true && !(user.gender == "woman")
+  end
 end

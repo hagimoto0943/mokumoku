@@ -46,7 +46,7 @@
         <div class="card-body">
           <%= simple_format @event.content %>
         </div>
-        <%if @event.only_woman?%>
+        <% if @event.only_woman? %>
               <p class="card-body">女性限定</p>
         <% end %>
       </div>
@@ -95,7 +95,7 @@
                               method: :delete,
                               data: { confirm: 'キャンセルします' }
                   %>
-                <% elsif @event.only_woman == true && !(current_user.gender == "woman") %>
+                <% elsif @event.attend_to_only_woman?(current_user) %>
                   <p>このイベントは女性限定です</p>
                 <% else %>
                   <%= link_to 'このもくもく会に参加する',
